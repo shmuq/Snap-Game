@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Snap Game</title>
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<script type="text/javascript" src="javascript/script.js"></script>
+</head>
+<body>
+	<!-- Game-->
+	<div id="playerOne" class="background">
+		<h3 id="playerOne" class="name">Player One</h3>
+		<div id="playerOne" class="card">😎</div>
+	</div>
+	<div id="playerTwo" class="background">
+		<h3 id="playerTwo" class="name">Player Two</h3>
+		<div id="playerTwo" class="card">😴</div>
+	</div>
+	<button id="playerOne" class="snap" onclick="snap(false)">SNAP!</button>
+	<button id="playerTwo" class="snap" onclick="snap(true)">SNAP!</button>
+	<div id="scoreBoard" class="background">
+		<span id="playerOne" class="scoreBoard">2</span> : <span id="playerTwo" class="scoreBoard">1</span>
+	</div>
+	<div id="roundNumber" class="roundNumber">Round: 4</div>
+	<!-- notices -->
+	<div id="notice" class="counter">3</div>	
+
+	<!-- instruction-->
+	<div id="instruction" class="background">
+		<button id="instruction" class="settings">⚙</button>
+		<h1 id="instruction" class="welcome">SNAP! - The Game</h1>
+		<button id="instruction" class="start" onclick="start()">START!</button>
+		<p id="instruction" class="instruction">
+			Press START to start the game.<br>
+			Press SNAP when there is a match, or when there is a joker!<br> 
+			You need <span id="instruction" class="roundsToWin">3</span> to win <br> 
+			The Joker is:<br><br> 
+			<span id="instruction" class="joker">🃏</span>
+		</p>
+	</div>
+	
+	<!-- end game-->
+	<div id="end" class="background hide">
+		<br><br>GAME OVER!<br>
+		<button id="end" class="restart" onclick="restart()">RESTART!</button>
+		<button id="end" class="settings">⚙</button>
+	</div>
+
+	<!-- Settings-->
+	<div id="settings" class="background">
+		<button id="settings" class="exit"></button>
+		<h2 id="settings" class="theme"></h2>
+		<h2 id="settings" class="numberOfPlayers"></h2>
+		<h2 id="settinge" class="difficulty"></h2>
+	</div>
+</body>
+</html>
