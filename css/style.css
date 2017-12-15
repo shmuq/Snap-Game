@@ -366,6 +366,7 @@ body{
 	border-radius: 25px;
 	font-size: 25px;
 	color: gold;
+	opacity: 1;
 }
 #end.restart:hover{
 	background-color: #c35100;
