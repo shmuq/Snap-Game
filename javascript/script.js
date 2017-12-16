@@ -158,11 +158,13 @@ function pcCallsSnap(){
 		snap(true);
 	}
 };
+var firstGame = true;
 var gameStarted = false;
 function start(){
 	if (gameStarted) {
 		return;
 	}
+	firstGame = false;
 	gameStarted = true;
 	startGame();
 	inti();
@@ -190,6 +192,9 @@ function end(){
 	}
 };
 function restart(){
+	if (firstGame) {
+		return;
+	}
 	if (gameStarted) {
 		return;
 	}

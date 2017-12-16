@@ -3,6 +3,8 @@ body{
 	padding: 0;
 	margin: 0;
 	font-family: Arial, sans-serif;
+	background-image: url('../img/snap-background.png');
+	background-size: cover; 
 }
 
 /* instruction */
@@ -10,9 +12,11 @@ body{
 	position: absolute;
 	background-color: black;
 	color: white;
+	top: 0;
+	left: 0;
 	width: 100%;
 	height: 100%;
-	opacity: .95;
+	opacity: .85;
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -78,9 +82,18 @@ body{
 	height: 0%;
 	width: 0%;
 	opacity: 0;
+	cursor: default;
 }
 /* settings */
-
+#setting.hide {
+	opacity: 0;
+}
+#setting.exit.hide{
+	opacity: 0;
+	width: 0;
+	height: 0;
+	cursor: default;
+}
 /* the game */
 /* score board*/
 #scoreBoard {
@@ -93,6 +106,7 @@ body{
 	text-align: center;
 	font-size: 40px;
 	font-weight: bold;
+	color: lavenderblush;
 }
 /* round */
 #roundNumber {
@@ -105,6 +119,7 @@ body{
 	text-align: center;
 	font-size: 25px;
 	font-weight: bold;
+	color: lavenderblush;
 }
 /* player one*/
 #playerOne.background {
@@ -118,20 +133,23 @@ body{
 	align-items: center;
 	justify-content: center;
 	flex-direction: column;
-	background-color: blue;
+	background-color: #0000ff00;
 }
 #playerOne.name {
 	position: absolute;
 	top: 90px;
 	text-align: center;
 	font-size: 30px;
+	font-family: Comic Sans MS;
+	color: goldenrod;
 }
 #playerOne.card {
 	position: absolute;
-	background-color: white;
+	background-image: url('../img/blue-playingcard.jpg');
+	background-size: cover;
+	border: 5px solid white;
 	height: 300px;
 	width: 200px;
-	box-sizing: border-box;
 	border-radius: 30px;
 	line-height: 300px;
 	text-align: center;
@@ -147,6 +165,9 @@ body{
 	height: 50px;
 	border-radius: 15px;
 	font-size: 25px;
+	background-color: #812f63;
+	border: none;
+	color: aliceblue;
 }
 #playerOne.snap.onePlayer {
 	position: absolute;
@@ -158,9 +179,13 @@ body{
 	height: 50px;
 	border-radius: 15px;
 	font-size: 25px;
+	background-color: #812f63;
+	border: none;
+	color: aliceblue;
 }
 .snap:hover {
 	cursor: pointer;
+	background-color: #812f63;
 }
 /*player Two*/
 #playerTwo.background {
@@ -174,23 +199,26 @@ body{
 	align-items: center;
 	justify-content: center;
 	flex-direction: column;
-	background-color: red;
+	background-color: #ff000000;
 }
 #playerTwo.name {
 	position: absolute;
 	top: 90px;
 	text-align: center;
 	font-size: 30px;
+	font-family: Comic Sans MS;
+	color: goldenrod;
 }
 #playerTwo.card {
 	position: absolute;
-	background-color: white;
+	background-image: url('../img/red-playingcard.jpg');
+	background-size: cover;
+	border: 5px solid white;
 	height: 300px;
 	width: 200px;
-	box-sizing: border-box;
 	border-radius: 30px;
 	line-height: 300px;
-	text-align: center;
+	vertical-align: center;
 	font-size: 150px;
 }
 #playerTwo.snap {
@@ -203,10 +231,23 @@ body{
 	height: 50px;
 	border-radius: 15px;
 	font-size: 25px;
+	background-color: #812f63;
+	border: none;
+	color: aliceblue;
 }
 #playerTwo.snap.onePlayer{
 	opacity: 0;
+	cursor: default;
 }
+#playerOne.snap:hover {
+	background-color: #701847;
+	border: solid blue;
+}
+#playerTwo.snap:hover {
+	background-color: #701847;
+	border: solid red;
+}
+/* notice*/
 /* counter */
 #notice.counter {
 	position: absolute;
@@ -216,12 +257,13 @@ body{
 	margin-left:-50px;
 	height: 100px;
 	width: 100px;
-	background-color: white;
+	background: radial-gradient(circle, yellow, #f1f3ad, #ffffff);
 	border-radius: 50px;
 	text-align: center;
 	line-height: 100px;
-	font-size: 50px;
+	font-size: 45px;
 	font-weight: bold;
+	color: black;
 }
 #notice.playerOneWon {
 	position: absolute;
@@ -323,6 +365,8 @@ body{
 #end.background{
 	position: absolute;
 	background-color: black;
+	top: 0;
+	left: 0;
 	color: white;
 	width: 100%;
 	height: 100%;
@@ -366,7 +410,6 @@ body{
 	border-radius: 25px;
 	font-size: 25px;
 	color: gold;
-	opacity: 1;
 }
 #end.restart:hover{
 	background-color: #c35100;
@@ -377,4 +420,5 @@ body{
 	height: 0%;
 	width: 0%;
 	opacity: 0;
+	cursor: default;
 }
