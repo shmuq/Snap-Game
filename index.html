@@ -27,7 +27,7 @@
 
 	<!-- instruction-->
 	<div id="instruction" class="background">
-		<button id="instruction" class="settings">⚙</button>
+		<button id="instruction" class="settings" onclick="showSettings()">⚙</button>
 		<h1 id="instruction" class="welcome">SNAP! - The Game</h1>
 		<button id="instruction" class="start" onclick="start()">START!</button>
 		<p id="instruction" class="instruction">
@@ -43,15 +43,40 @@
 	<div id="end" class="background hide">
 		<br><br>GAME OVER!<br>
 		<button id="end" class="restart" onclick="restart()">RESTART!</button>
-		<button id="end" class="settings">⚙</button>
+		<button id="end" class="settings" onclick="showSettings()">⚙</button>
 	</div>
 
 	<!-- Settings-->
 	<div id="settings" class="background hide">
-		<!--<button id="settings" class="exit"></button> -->
-		<h2 id="settings" class="theme"></h2>
-		<h2 id="settings" class="numberOfPlayers"></h2>
-		<h2 id="settinge" class="difficulty"></h2>
+		<button id="settings" class="exit" onclick="hideSettings()">✖</button>
+		<h1 id="settings" class="settings">Settings</h1>
+		<table id="settings" class="table">
+			<tr>
+				<th>Theme:</th>
+				<th>
+					<select id="theme" class="theme">
+						<option>Emojis</li>	
+					</select>
+				</th>
+			</tr>
+			<tr>
+				<th>Number of Player:</th>
+				<th>
+					<select id="numberOfPlayers" class="numberOfPlayers">
+						<option>1</option>
+						<option>2</option>
+					</select>
+				</th>
+			</tr>
+			<tr>
+				<th>Difficulty:</th>
+				<th>
+					<select id="difficulty" class="difficulty">
+						<option>Easy</option>
+					</select>
+				</th>
+			</tr>
+		</table>
 	</div>
 </body>
 </html>

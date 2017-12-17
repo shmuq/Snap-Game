@@ -85,14 +85,55 @@ body{
 	cursor: default;
 }
 /* settings */
-#setting.hide {
-	opacity: 0;
-}
-#setting.exit.hide{
-	opacity: 0;
-	width: 0;
-	height: 0;
+#settings.background{
+	position: absolute;
+	background-color: black;
+	color: white;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	opacity: .85;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
 	cursor: default;
+}
+#settings.exit {
+	position: absolute;
+	top: 50px;
+	right: 50px;
+	width: 30px;
+	height: 30px;
+	padding: 0 .25px;
+	background-color: black;
+	opacity: .95;
+	color: #607D8B;
+	border: 2px solid #607D8B;
+	border-radius: 12px;
+	font-size: 30px;
+	line-height: 25px;
+	text-align: center;
+}
+#settings.exit:hover{
+	color: #9E9E9E;
+	border: 2px solid #9E9E9E;
+	cursor: pointer;
+}
+table {
+    border-collapse: collapse;
+}
+td, th {
+    text-align: left;
+    padding: 10px;
+}
+ul {
+	list-style-type: none;
+}
+#settings.hide {
+	opacity: 0;
+	display: none;
 }
 /* the game */
 /* score board*/
@@ -218,7 +259,7 @@ body{
 	width: 200px;
 	border-radius: 30px;
 	line-height: 300px;
-	vertical-align: center;
+	text-align: center;
 	font-size: 150px;
 }
 #playerTwo.snap {

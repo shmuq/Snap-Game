@@ -1,7 +1,7 @@
 // settings // subject to change
-var theme = 'Emojis';
-var numberOfPlayers = 1;
-var difficulty = 'Easy';
+var theme ;
+var numberOfPlayers ;
+var difficulty ;
 
 // game settings
 var roundsToWin = 3;
@@ -21,42 +21,46 @@ var playerTwo = {
 };
 
 // difficulty
-if (difficulty == 'Easy') {
-	var pcCallsIn = 2000;
-	var countdownFrom = 3;
-	var countdownSpeed = 800;
-	var newRoundTime = 4000;
-}
-
-// instruction
+var pcCallsIn;
+var countdownFrom;
+var countdownSpeed;
+var newRoundTime;
 
 //starting the game
 var noticePlayerOneWon;
 var noticePlayerOneWonGame;
 var noticePlayerTwoWon;
 var noticePlayerTwoWonGame;
-
-if (numberOfPlayers == 1) {
-	playerTwo.name = 'PC';
-	noticePlayerOneWon = 'You won one point';
-	noticePlayerOneWonGame = 'YOU WIN!<br>🎈🎉🎈';
-	noticePlayerTwoWon = 'PC won one point';
-	noticePlayerTwoWonGame = 'PC WON!<br>😑😣😭';
-} else {
-	playerTwo.name = 'Player Two';
-	noticePlayerOneWon = 'Player one won one point';
-	noticePlayerOneWonGame = 'PLAYER ONE WINS!';
-	noticePlayerTwoWon = 'Player Two won one point';
-	noticePlayerTwoWonGame = 'Player TWO WINS!';
-}
-
-// theme
-if (theme == 'Emojis') {
+var cards;
+var joker;
+function selectSettings (){
 	if (difficulty == 'Easy') {
-		var cards = ['😊','😂','😍','😢','🤬','😨'];
-		var joker = '🃏';
+	pcCallsIn = 2000;
+	countdownFrom = 3;
+	countdownSpeed = 800;
+	newRoundTime = 4000;
 	}
-}
+	if (numberOfPlayers == 1) {
+		playerTwo.name = 'PC';
+		noticePlayerOneWon = 'You won one point';
+		noticePlayerOneWonGame = 'YOU WIN!<br>🎈🎉🎈';
+		noticePlayerTwoWon = 'PC won one point';
+		noticePlayerTwoWonGame = 'PC WON!<br>😑😣😭';
+	} else {
+		playerTwo.name = 'Player Two';
+		noticePlayerOneWon = 'Player one won one point';
+		noticePlayerOneWonGame = 'PLAYER ONE WINS!';
+		noticePlayerTwoWon = 'Player Two won one point';
+		noticePlayerTwoWonGame = 'Player TWO WINS!';
+	}
+	// theme
+	if (theme == "Emojis") {
+		if (difficulty == "Easy") {
+			cards = ['😊','😂','😍','😢','🤬','😨'];
+			joker = '🃏';
+		}
+	}
+};
 
 //the game
 var getRandomCard = function () {
@@ -84,7 +88,7 @@ var startNextRound = function () {
 	} 
 	setTimeout(countdown,newRoundTime);
 };
-var count = countdownFrom;
+var count;
 var countdownStarted = false;
 function countdown(){
 	countdownStarted = true;
@@ -164,10 +168,13 @@ function start(){
 	if (gameStarted) {
 		return;
 	}
+	settings();
+	selectSettings ();
+	count = countdownFrom;
+	inti();
 	firstGame = false;
 	gameStarted = true;
 	startGame();
-	inti();
 	countdown();
 };
 
@@ -198,12 +205,15 @@ function restart(){
 	if (gameStarted) {
 		return;
 	}
+	settings();
+	selectSettings ();
 	removeNotice(playerOneWonGame);
 	hideEnd();
 	gameStarted = true;
 	playerOne.roundsWon = 0;
 	playerTwo.roundsWon = 0;
 	currentRound = 0;
+	count = countdownFrom;
 	inti();
 	setTimeout(countdown(),1000);
 };
@@ -215,6 +225,42 @@ var playersScore =document.getElementsByClassName("scoreBoard");
 var round = document.getElementsByClassName("roundNumber");
 var snapBtn = document.getElementsByClassName("snap");
 
+function showSettings (){
+	if (firstGame) {
+		document.getElementById("instruction").classList.add("hide");
+	}else{
+		document.getElementById("end").classList.add("hide");
+	}
+	document.getElementById("settings").classList.remove("hide");
+};
+function hideSettings (){
+	document.getElementById("settings").classList.add("hide");
+	if (firstGame) {
+		document.getElementById("instruction").classList.remove("hide");
+	}else{
+		document.getElementById("end").classList.remove("hide");
+	}
+};
+function settings (){
+	switch (document.getElementById("theme").selectedIndex){
+		case 0:
+			theme = 'Emojis';
+			break;
+	}
+	switch (document.getElementById("numberOfPlayers").selectedIndex){
+		case 0:
+			numberOfPlayers = 1;
+			break;
+		case 1:
+			numberOfPlayers = 2;
+			break;
+	}
+	switch (document.getElementById("difficulty").selectedIndex){
+		case 0:
+			difficulty = 'Easy';
+			break;
+	}
+};
 function startGame (){
 	document.getElementById("instruction").classList.add("hide");
 };
@@ -246,7 +292,7 @@ function updateCounter (){
 		document.getElementById("notice").innerHTML = count;
 	}	
 };
-var shuffleCount = cards.length - 1
+var shuffleCount = -1;
 var endShuffle = false;
 function shuffle (){
 	if (endShuffle) {
