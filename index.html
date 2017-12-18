@@ -6,7 +6,7 @@
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 	<script type="text/javascript" src="javascript/script.js"></script>
 </head>
-<body>
+<body onkeydown="callSnap()">
 	<!-- Game-->
 	<div id="playerOne" class="background">
 		<h3 id="playerOne" class="name">Player One</h3>
@@ -33,9 +33,10 @@
 		<p id="instruction" class="instruction">
 			Press START to start the game.<br>
 			Press SNAP when there is a match, or when there is a joker!<br> 
-			You need <span id="instruction" class="roundsToWin">3</span> to win <br> 
+			You need <span id="instruction" class="roundsToWin">3</span> to win. <br> 
 			The Joker is:<br><br> 
-			<span id="instruction" class="joker">🃏</span>
+			<span id="instruction" class="joker">🃏</span><br><br>
+			For two players; <br>player one press ⬅ to call snap, <br>player two press ➡ to call snap.
 		</p>
 	</div>
 	

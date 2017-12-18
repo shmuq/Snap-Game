@@ -51,7 +51,7 @@ function selectSettings (){
 		noticePlayerOneWon = 'Player one won one point';
 		noticePlayerOneWonGame = 'PLAYER ONE WINS!';
 		noticePlayerTwoWon = 'Player Two won one point';
-		noticePlayerTwoWonGame = 'Player TWO WINS!';
+		noticePlayerTwoWonGame = 'PLAYER TWO WINS!';
 	}
 	// theme
 	if (theme == "Emojis") {
@@ -328,8 +328,10 @@ function updateNotice (playerOneWon){
 	setTimeout(function(){
 		if (playerOneWon) {
 			document.getElementById("notice").classList.remove('playerOneWon');
+			document.getElementById("notice").innerHTML = '';
 		}else{
 			document.getElementById("notice").classList.remove('playerTwoWon');
+			document.getElementById("notice").innerHTML = '';
 		}
 	},1999);
 	if (end()) {
@@ -358,6 +360,28 @@ function endGameScreen (){
 function hideEnd (){
 	document.getElementById("end").classList.add('hide');
 };
+function callSnap (){
+	if (numberOfPlayers == 1) {
+		return;
+	}
+	var keyId = event.keyCode;
+	switch (keyId){
+		case 39: 
+			snap(true);		
+			return;
+		case 37:
+			snap(false);
+			return;
+		default:
+			return;
+	}
+};
+
+// key code
+function whichButton() {
+	var keyCode = event.keyCode;
+    console.log(keyCode) 
+}
 
 //percentage
 function percentage(){
