@@ -56,7 +56,7 @@ function selectSettings (){
 	// theme
 	if (theme == "Emojis") {
 		if (difficulty == "Easy") {
-			cards = ['😊','😂','😍','😢','🤬','😨'];
+			cards = ['😊','😂','😍','😢','😡','😨'];
 			joker = '🃏';
 		}
 	}
